@@ -38,6 +38,14 @@ class Chaton
      */
     private $Categorie;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Owner::class, inversedBy="owner")
+     *
+     * @ORM\JoinTable(name="chaton_owners")
+     */
+    private $Owner;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +95,28 @@ class Chaton
     public function setCategorie(?Categorie $Categorie): self
     {
         $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+
+    public function getOwner()
+    {
+        return $this->Owner;
+    }
+
+    public function addOwner(Chaton $Owner): self
+    {
+        if (!$this->Owner->contains($Owner)) {
+            $this->Owner[] = $Owner;
+        }
+
+        return $this;
+    }
+
+    public function removeOwner(Chaton $Owner): self
+    {
+        $this->Owner->removeElement($Owner);
 
         return $this;
     }

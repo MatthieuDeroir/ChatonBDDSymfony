@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propriétaires {% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container">
+        <h1>Propriétaire</h1>
+        <div class="row">
+            {% for o in owner %}
+                <div class="col col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ o.name }}</h2>
+                            <a href="{{path("supprimer_owner",{"id":o.id})}}" class="btn btn-danger">Supprimer</a>
+                            <a href="{{path("modifier_owner",{"id":o.id})}}" class="btn btn-warning">Modifier</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ path("ajouter_owner") }}" class="mt-5 btn btn-primary">Ajouter un propriétaire</a>
+    </div>
+{% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CategoriesController extends AbstractController
+class CategoryController extends AbstractController
 {
     /**
      * @Route("/", name="app_home")
@@ -49,7 +49,7 @@ class CategoriesController extends AbstractController
 
         return $this->render('categories/index.html.twig', [
             'categories'=>$categories,
-            'formulaire'=>$form->createView()
+            'form'=>$form->createView()
         ]);
     }
 

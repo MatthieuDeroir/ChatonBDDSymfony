@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer le chaton{{ chaton.nom }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Êtes-vous sûr de vouloir supprimer ce chaton ?</h1>
+        {{ form(form) }}
+        <a href="{{ path("app_home") }}" class="btn btn-warning">Annuler</a>
+    </div>
+{% endblock %}
+
